@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       TÍTULO DA ABA DO NAVEGADOR — troque aqui
+       ============================================================ -->
+  <title>Bruno Design — Identidade Visual & Branding</title>
+
+  <!-- Fontes do Google — Bricolage Grotesque (display) + DM Sans (corpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600;12..96,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER / NAVEGAÇÃO
+       ============================================================ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+
+      <!-- LOGO — troque o src pela sua logo -->
+      <a href="#home" class="header__logo">
+        <img src="C:\Users\Nawaithes\Downloads\BM2.png" alt="Bruno Design" class="header__logo-img" />
+      </a>
+
+      <!-- Menu hambúrguer (mobile) -->
+      <button class="header__hamburger" id="hamburger" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Links de navegação -->
+      <nav class="header__nav" id="nav">
+        <a href="#home"      class="header__nav-link">Home</a>
+        <a href="#sobre"     class="header__nav-link">Sobre</a>
+        <a href="#portfolio" class="header__nav-link">Portfólio</a>
+        <a href="#contato"   class="header__nav-link">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       HERO / HOME
+       ============================================================ -->
+  <section class="hero" id="home">
+    <div class="hero__bg-shape"></div>
+    <div class="hero__content">
+
+      <!-- ✏️ TROQUE a frase principal aqui -->
+      <p class="hero__tag">Identidade Visual · Branding · Design Gráfico</p>
+      <h1 class="hero__title">
+        Marcas que <em>ficam</em><br />na memória.
+      </h1>
+
+      <!-- ✏️ TROQUE a descrição aqui -->
+      <p class="hero__desc">
+        Criamos identidades visuais únicas que comunicam a essência do seu negócio
+        e se conectam com o seu público de forma autêntica.
+      </p>
+
+      <a href="#portfolio" class="btn btn--primary">Ver projetos</a>
+    </div>
+
+    <!-- Logo decorativa flutuante -->
+    <div class="hero__visual">
+      <img src=alt="BM Design" class="hero__logo-float" />
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SOBRE
+       ============================================================ -->
+  <section class="sobre" id="sobre">
+    <div class="container">
+      <div class="sobre__grid">
+
+        <div class="sobre__text">
+          <!-- ✏️ TROQUE o texto da seção Sobre aqui -->
+          <span class="section-tag">Sobre</span>
+          <h2 class="section-title">Olá, sou Bruno.<br />Designer apaixonado por marcas.</h2>
+          <p>
+            A BM Design nasceu da vontade de criar identidades visuais que vão além do bonito,
+            marcas com propósito, personalidade e presença.
+          </p>
+          <p>
+            Trabalho com marcas de diferentes segmentos, sempre com foco em estratégia visual,
+            consistência e resultados reais para o negócio dos meus clientes.
+          </p>
+          <p>
+            Cada projeto é tratado como único: do briefing à entrega final, com atenção aos detalhes
+            e comunicação transparente.
+          </p>
+
+          <!-- ✏️ Troque os números abaixo pelos seus -->
+          <div class="sobre__stats">
+            <div class="sobre__stat">
+              <span class="sobre__stat-num">50+</span>
+              <span class="sobre__stat-label">Projetos entregues</span>
+            </div>
+            <div class="sobre__stat">
+              <span class="sobre__stat-num">3+</span>
+              <span class="sobre__stat-label">Anos de experiência</span>
+            </div>
+            <div class="sobre__stat">
+              <span class="sobre__stat-num">100%</span>
+              <span class="sobre__stat-label">Dedicação</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sobre__visual">
+          <!-- Logo alternativa na seção sobre -->
+          <img src="LOGO_PNG_2.png" alt="Bruno Design" class="sobre__img" />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PORTFÓLIO
+       ============================================================ -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="portfolio__header">
+        <span class="section-tag">Portfólio</span>
+        <h2 class="section-title">Projetos em destaque</h2>
+        <p class="portfolio__subtitle">Clique em um projeto para ver os detalhes.</p>
+      </div>
+
+      <!-- ============================================================
+           GRID DE CLIENTES
+           Para adicionar um novo cliente:
+           1. Copie um bloco <div class="portfolio__item"> completo
+           2. Troque o data-client pelo ID único do cliente (ex: "cliente4")
+           3. Troque a imagem src
+           4. Troque o <span> pelo nome do cliente
+           5. Adicione os dados do cliente no script.js (veja o arquivo)
+           ============================================================ -->
+      <div class="portfolio__grid">
+
+        <!-- CLIENTE 1 -->
+        <div class="portfolio__item" data-client="cliente1">
+          <div class="portfolio__item-inner">
+            <!-- ✏️ Troque o src pela logo do cliente -->
+            <img src="LOGO_PNG_4.png" alt="Cliente 1" class="portfolio__logo" />
+            <div class="portfolio__item-overlay">
+              <span class="portfolio__item-label">Ver projeto →</span>
+            </div>
+          </div>
+          <span class="portfolio__item-name">Estúdio Forma</span>
+        </div>
+
+        <!-- CLIENTE 2 -->
+        <div class="portfolio__item" data-client="cliente2">
+          <div class="portfolio__item-inner">
+            <img src="LOGO_PNG_3.png" alt="Cliente 2" class="portfolio__logo" />
+            <div class="portfolio__item-overlay">
+              <span class="portfolio__item-label">Ver projeto →</span>
+            </div>
+          </div>
+          <span class="portfolio__item-name">Botânica Verde</span>
+        </div>
+
+        <!-- CLIENTE 3 -->
+        <div class="portfolio__item" data-client="cliente3">
+          <div class="portfolio__item-inner">
+            <img src="LOGO_PNG_2.png" alt="Cliente 3" class="portfolio__logo" />
+            <div class="portfolio__item-overlay">
+              <span class="portfolio__item-label">Ver projeto →</span>
+            </div>
+          </div>
+          <span class="portfolio__item-name">Arquitetura Nova</span>
+        </div>
+
+        <!-- CLIENTE 4 -->
+        <div class="portfolio__item" data-client="cliente4">
+          <div class="portfolio__item-inner">
+            <img src="LOGO_PNG.png" alt="Cliente 4" class="portfolio__logo" />
+            <div class="portfolio__item-overlay">
+              <span class="portfolio__item-label">Ver projeto →</span>
+            </div>
+          </div>
+          <span class="portfolio__item-name">Café Origem</span>
+        </div>
+
+        <!-- CLIENTE 5 -->
+        <div class="portfolio__item" data-client="cliente5">
+          <div class="portfolio__item-inner">
+            <img src="LOGO_PNG_4.png" alt="Cliente 5" class="portfolio__logo" />
+            <div class="portfolio__item-overlay">
+              <span class="portfolio__item-label">Ver projeto →</span>
+            </div>
+          </div>
+          <span class="portfolio__item-name">Tech Simples</span>
+        </div>
+
+        <!-- CLIENTE 6 -->
+        <div class="portfolio__item" data-client="cliente6">
+          <div class="portfolio__item-inner">
+            <img src="LOGO_PNG_3.png" alt="Cliente 6" class="portfolio__logo" />
+            <div class="portfolio__item-overlay">
+              <span class="portfolio__item-label">Ver projeto →</span>
+            </div>
+          </div>
+          <span class="portfolio__item-name">Marca Livre</span>
+        </div>
+
+      </div><!-- /portfolio__grid -->
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       MODAL DE DETALHES DO PROJETO
+       (Preenchido dinamicamente pelo JavaScript)
+       ============================================================ -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal" role="dialog" aria-modal="true">
+      <button class="modal__close" id="modalClose" aria-label="Fechar">✕</button>
+
+      <div class="modal__body">
+        <div class="modal__left">
+          <img src="" alt="" class="modal__logo" id="modalLogo" />
+          <div class="modal__tags" id="modalTags"></div>
+          <a href="#" target="_blank" class="btn btn--outline modal__link" id="modalLink">
+            Ver site ↗
+          </a>
+        </div>
+        <div class="modal__right">
+          <span class="modal__category" id="modalCategory"></span>
+          <h3 class="modal__title" id="modalTitle"></h3>
+          <p class="modal__desc" id="modalDesc"></p>
+
+          <!-- Galeria de imagens do projeto -->
+          <div class="modal__gallery" id="modalGallery"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       CONTATO
+       ============================================================ -->
+  <section class="contato" id="contato">
+    <div class="container">
+      <div class="contato__grid">
+
+        <div class="contato__info">
+          <span class="section-tag">Contato</span>
+          <h2 class="section-title">Vamos criar algo<br />incrível juntos?</h2>
+          <!-- ✏️ Troque os dados de contato aqui -->
+          <p>Entre em contato e vamos conversar sobre o seu próximo projeto.</p>
+          <div class="contato__links">
+            <a href="mailto:contato@brunodesign.com" class="contato__link">
+              <span class="contato__link-icon">✉</span>
+              contato@brunodesign.com
+            </a>
+            <a href="https://wa.me/5511999999999" target="_blank" class="contato__link">
+              <span class="contato__link-icon">📱</span>
+              (11) 99999-9999
+            </a>
+            <a href="https://instagram.com/brunodesign" target="_blank" class="contato__link">
+              <span class="contato__link-icon">📸</span>
+              @brunodesign
+            </a>
+          </div>
+        </div>
+
+        <form class="contato__form" id="contactForm">
+          <!-- ✏️ Formulário de contato — os campos são visuais.
+               Para receber os e-mails de verdade, conecte a um serviço
+               como Formspree (formspree.io) ou EmailJS -->
+
+          <div class="form__group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required />
+          </div>
+          <div class="form__group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+          </div>
+          <div class="form__group">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="5" placeholder="Conte um pouco sobre o seu projeto..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Enviar mensagem</button>
+          <p class="form__success" id="formSuccess">✓ Mensagem enviada! Em breve entro em contato.</p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+
+        <img src="C:\Users\Nawaithes\Downloads\BM2.png" alt="Bruno Design" class="footer__logo" />
+
+        <!-- ✏️ Troque os links das redes sociais aqui -->
+        <div class="footer__social">
+          <a href="https://instagram.com/brunodesign" target="_blank" class="footer__social-link">Instagram</a>
+          <a href="https://behance.net/brunodesign"   target="_blank" class="footer__social-link">Behance</a>
+          <a href="https://linkedin.com/in/brunodesign" target="_blank" class="footer__social-link">LinkedIn</a>
+        </div>
+
+        <!-- ✏️ Troque o ano / nome aqui -->
+        <p class="footer__copy">© 2025 Bruno Design. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

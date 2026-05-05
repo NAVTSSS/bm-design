@@ -1,0 +1,900 @@
+/* ================================================================
+   BRUNO DESIGN — PORTFÓLIO
+   style.css
+   ================================================================
+
+   ÍNDICE:
+   1. Variáveis de cor e configuração global
+   2. Reset e base
+   3. Tipografia
+   4. Utilitários (btn, container, section-tag)
+   5. Header / Navegação
+   6. Hero
+   7. Sobre
+   8. Portfólio
+   9. Modal
+   10. Contato
+   11. Footer
+   12. Animações
+   13. Responsivo (mobile)
+
+================================================================ */
+
+
+/* ================================================================
+   1. VARIÁVEIS — para trocar cores, mude apenas aqui!
+================================================================ */
+:root {
+  /* Cores principais — extraídas da identidade visual da BM Design */
+  --cor-escura:     #2b4a4f;   /* teal escuro — cor dominante da logo */
+  --cor-sage:       #b9cfc4;   /* verde sage — cor de fundo do insta */
+  --cor-texto:      #f0ede8;   /* off-white quente para textos */
+  --cor-texto-sub:  #a8b8b4;   /* cinza esverdeado para subtextos */
+  --cor-bg:         #111714;   /* fundo escuro do site */
+  --cor-bg2:        #181f1c;   /* fundo levemente mais claro para seções alternadas */
+  --cor-borda:      rgba(185,207,196,0.15); /* bordas sutis */
+  --cor-hover:      rgba(185,207,196,0.08); /* hover suave */
+
+  /* Tipografia */
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Tamanhos */
+  --radius:    16px;
+  --radius-sm: 8px;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow:     0 8px 48px rgba(0,0,0,0.4);
+}
+
+
+/* ================================================================
+   2. RESET E BASE
+================================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cor-bg);
+  color: var(--cor-texto);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* ================================================================
+   3. TIPOGRAFIA
+================================================================ */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+h1 { font-size: clamp(2.4rem, 6vw, 5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
+
+p {
+  color: var(--cor-texto-sub);
+  font-weight: 300;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+em {
+  font-style: italic;
+  color: var(--cor-sage);
+}
+
+
+/* ================================================================
+   4. UTILITÁRIOS
+================================================================ */
+
+/* Container centralizado */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Tag de seção (ex: "Sobre", "Portfólio") */
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cor-sage);
+  border: 1px solid var(--cor-borda);
+  padding: 0.3rem 0.9rem;
+  border-radius: 100px;
+  margin-bottom: 1.2rem;
+}
+
+/* Título de seção */
+.section-title {
+  margin-bottom: 1.5rem;
+  color: var(--cor-texto);
+}
+
+/* Botões */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.85rem 2rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+/* Botão primário (verde sage) */
+.btn--primary {
+  background: var(--cor-sage);
+  color: var(--cor-escura);
+}
+.btn--primary:hover {
+  background: #ccddd6;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(185,207,196,0.3);
+}
+
+/* Botão contorno */
+.btn--outline {
+  background: transparent;
+  color: var(--cor-sage);
+  border: 1px solid var(--cor-borda);
+}
+.btn--outline:hover {
+  background: var(--cor-hover);
+  border-color: var(--cor-sage);
+  transform: translateY(-2px);
+}
+
+/* Botão largura total */
+.btn--full {
+  width: 100%;
+}
+
+
+/* ================================================================
+   5. HEADER
+================================================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 0;
+  background: rgba(17, 23, 20, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--cor-borda);
+  transition: background var(--transition), backdrop-filter var(--transition);
+}
+
+/* Classe adicionada pelo JS quando rola a página */
+.header.scrolled {
+  background: rgba(17, 23, 20, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Logo no header */
+.header__logo-img {
+  height: 48px;
+  width: auto;
+  transition: opacity var(--transition);
+}
+.header__logo:hover .header__logo-img { opacity: 0.8; }
+
+/* Links de nav */
+.header__nav {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.header__nav-link {
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: var(--cor-texto-sub);
+  transition: color var(--transition);
+  position: relative;
+}
+.header__nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--cor-sage);
+  transform: scaleX(0);
+  transition: transform var(--transition);
+}
+.header__nav-link:hover {
+  color: var(--cor-texto);
+}
+.header__nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Hambúrguer (mobile — oculto no desktop) */
+.header__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.header__hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--cor-texto);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+
+/* ================================================================
+   6. HERO
+================================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  gap: 4rem;
+}
+
+/* Forma decorativa de fundo */
+.hero__bg-shape {
+  position: fixed;
+  top: -20vh;
+  right: -10vw;
+  width: 60vw;
+  height: 60vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: radial-gradient(ellipse, rgba(43,74,79,0.25) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__content {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__tag {
+  font-size: 0.82rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cor-sage);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.hero__title {
+  margin-bottom: 1.5rem;
+  color: var(--cor-texto);
+}
+
+.hero__desc {
+  font-size: 1.15rem;
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+  color: var(--cor-texto-sub);
+}
+
+/* Logo flutuante à direita */
+.hero__visual {
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__logo-float {
+  width: min(360px, 38vw);
+  animation: floatY 6s ease-in-out infinite;
+  filter: drop-shadow(0 32px 64px rgba(43,74,79,0.5));
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-18px); }
+}
+
+
+/* ================================================================
+   7. SOBRE
+================================================================ */
+.sobre {
+  background: var(--cor-bg2);
+  padding: 7rem 0;
+  border-top: 1px solid var(--cor-borda);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.sobre__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.sobre__text p { margin-bottom: 1.2rem; }
+
+/* Stats numéricos */
+.sobre__stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.sobre__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sobre__stat-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--cor-sage);
+  line-height: 1;
+}
+
+.sobre__stat-label {
+  font-size: 0.82rem;
+  color: var(--cor-texto-sub);
+  letter-spacing: 0.05em;
+}
+
+/* Imagem/logo na seção sobre */
+.sobre__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sobre__img {
+  max-width: 420px;
+  opacity: 0.85;
+  transition: opacity var(--transition);
+}
+.sobre__img:hover { opacity: 1; }
+
+
+/* ================================================================
+   8. PORTFÓLIO
+================================================================ */
+.portfolio {
+  padding: 7rem 0;
+}
+
+.portfolio__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.portfolio__subtitle {
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Grid de projetos */
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card do projeto */
+.portfolio__item {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.portfolio__item-inner {
+  position: relative;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--cor-bg2);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.portfolio__item:hover .portfolio__item-inner {
+  border-color: var(--cor-sage);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+
+/* Logo dentro do card */
+.portfolio__logo {
+  max-height: 100px;
+  max-width: 80%;
+  object-fit: contain;
+  transition: filter var(--transition), transform var(--transition);
+  filter: brightness(0.9);
+}
+.portfolio__item:hover .portfolio__logo {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
+/* Overlay "Ver projeto →" */
+.portfolio__item-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(43, 74, 79, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition);
+  border-radius: var(--radius);
+}
+.portfolio__item:hover .portfolio__item-overlay { opacity: 1; }
+
+.portfolio__item-label {
+  color: var(--cor-texto);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+/* Nome do projeto abaixo do card */
+.portfolio__item-name {
+  font-size: 0.92rem;
+  color: var(--cor-texto-sub);
+  font-weight: 400;
+  padding-left: 0.25rem;
+  transition: color var(--transition);
+}
+.portfolio__item:hover .portfolio__item-name {
+  color: var(--cor-texto);
+}
+
+
+/* ================================================================
+   9. MODAL
+================================================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 10, 8, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: var(--cor-bg2);
+  border: 1px solid var(--cor-borda);
+  border-radius: calc(var(--radius) * 1.5);
+  max-width: 860px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 2.5rem;
+  transform: translateY(24px) scale(0.97);
+  transition: transform var(--transition);
+}
+
+.modal-overlay.active .modal {
+  transform: translateY(0) scale(1);
+}
+
+/* Botão fechar */
+.modal__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--cor-hover);
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto-sub);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.modal__close:hover {
+  background: var(--cor-borda);
+  color: var(--cor-texto);
+}
+
+/* Layout do modal: esquerda (logo/tags/link) + direita (texto) */
+.modal__body {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.modal__left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+.modal__logo {
+  max-width: 100%;
+  max-height: 140px;
+  object-fit: contain;
+  filter: brightness(0.9);
+}
+
+/* Tags de serviço (ex: "Branding", "Social Media") */
+.modal__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.modal__tag {
+  font-size: 0.75rem;
+  color: var(--cor-sage);
+  border: 1px solid var(--cor-borda);
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+}
+
+.modal__category {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cor-sage);
+  margin-bottom: 0.5rem;
+}
+
+.modal__title {
+  margin-bottom: 1rem;
+  color: var(--cor-texto);
+}
+
+.modal__desc {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Galeria de imagens do modal */
+.modal__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.modal__gallery img {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--cor-borda);
+  object-fit: cover;
+  aspect-ratio: 4/3;
+  transition: border-color var(--transition), transform var(--transition);
+}
+.modal__gallery img:hover {
+  border-color: var(--cor-sage);
+  transform: scale(1.03);
+}
+
+
+/* ================================================================
+   10. CONTATO
+================================================================ */
+.contato {
+  background: var(--cor-bg2);
+  padding: 7rem 0;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.contato__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.contato__links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.contato__link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+  color: var(--cor-texto-sub);
+  transition: color var(--transition);
+}
+.contato__link:hover { color: var(--cor-sage); }
+
+.contato__link-icon {
+  font-size: 1.1rem;
+  width: 28px;
+  text-align: center;
+}
+
+/* Formulário */
+.contato__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.form__group label {
+  font-size: 0.85rem;
+  color: var(--cor-texto-sub);
+  letter-spacing: 0.05em;
+}
+
+.form__group input,
+.form__group textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  color: var(--cor-texto);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: border-color var(--transition), background var(--transition);
+  resize: vertical;
+  outline: none;
+}
+
+.form__group input:focus,
+.form__group textarea:focus {
+  border-color: var(--cor-sage);
+  background: rgba(185,207,196,0.05);
+}
+
+.form__group input::placeholder,
+.form__group textarea::placeholder {
+  color: rgba(168,184,180,0.5);
+}
+
+/* Mensagem de sucesso (oculta por padrão) */
+.form__success {
+  display: none;
+  color: var(--cor-sage);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.form__success.visible { display: block; }
+
+
+/* ================================================================
+   11. FOOTER
+================================================================ */
+.footer {
+  padding: 3rem 0;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer__logo {
+  height: 44px;
+  width: auto;
+  opacity: 0.7;
+  transition: opacity var(--transition);
+}
+.footer__logo:hover { opacity: 1; }
+
+.footer__social {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer__social-link {
+  font-size: 0.88rem;
+  color: var(--cor-texto-sub);
+  transition: color var(--transition);
+}
+.footer__social-link:hover { color: var(--cor-sage); }
+
+.footer__copy {
+  font-size: 0.82rem;
+  color: rgba(168,184,180,0.45);
+  margin: 0;
+}
+
+
+/* ================================================================
+   12. ANIMAÇÕES DE ENTRADA (scroll)
+================================================================ */
+
+/* Classe base — elementos começam invisíveis */
+.fade-in {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* Classe adicionada pelo JS quando o elemento entra na tela */
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay escalonado para o grid de portfólio */
+.portfolio__item:nth-child(1) { transition-delay: 0.05s; }
+.portfolio__item:nth-child(2) { transition-delay: 0.10s; }
+.portfolio__item:nth-child(3) { transition-delay: 0.15s; }
+.portfolio__item:nth-child(4) { transition-delay: 0.20s; }
+.portfolio__item:nth-child(5) { transition-delay: 0.25s; }
+.portfolio__item:nth-child(6) { transition-delay: 0.30s; }
+
+
+/* ================================================================
+   13. RESPONSIVO — MOBILE (< 768px)
+================================================================ */
+@media (max-width: 768px) {
+
+  /* Header mobile */
+  .header__hamburger { display: flex; }
+
+  .header__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--cor-bg);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    transform: translateX(100%);
+    transition: transform var(--transition);
+    z-index: 99;
+  }
+  .header__nav.open { transform: translateX(0); }
+
+  .header__nav-link {
+    font-size: 1.5rem;
+    font-family: var(--font-display);
+  }
+
+  /* Hero mobile */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 6rem;
+    gap: 2rem;
+  }
+  .hero__desc { margin: 0 auto 2rem; }
+  .hero__logo-float { width: 200px; }
+
+  /* Sobre mobile */
+  .sobre__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .sobre__visual { order: -1; }
+  .sobre__img { max-width: 260px; margin: 0 auto; }
+  .sobre__stats { justify-content: center; }
+
+  /* Portfolio mobile */
+  .portfolio__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Modal mobile */
+  .modal__body {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .modal__left { align-items: center; text-align: center; }
+  .modal__tags { justify-content: center; }
+  .modal { padding: 1.5rem; border-radius: var(--radius); }
+
+  /* Contato mobile */
+  .contato__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* Footer mobile */
+  .footer__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio__grid { grid-template-columns: 1fr; }
+  .sobre__stats { flex-direction: column; gap: 1.5rem; align-items: center; }
+}
